@@ -13,7 +13,7 @@ import org.apache.http.impl.client.BasicCookieStore;
 import org.apache.http.util.EntityUtils;
 
 import com.ito.app.controller.HttpManager;
-import com.ito.app.controller.SearchController;
+import com.ito.app.controller.ServiceController;
 import com.ito.app.controller.SoapHandler;
 import com.ito.app.request.SessionCreateRequest;
 import com.snail.core.util.HttpResponseUtil;
@@ -22,9 +22,9 @@ import com.snail.core.util.SoapUtil;
 public class SessionCreateExecution {
 
 	public static final int TIMEOUT = 150 * 1000;	
-	private SearchController controller;
+	private ServiceController controller;
 	
-	public SessionCreateExecution(SearchController controller)
+	public SessionCreateExecution(ServiceController controller)
 	{
 		this.controller = controller;
 	}
