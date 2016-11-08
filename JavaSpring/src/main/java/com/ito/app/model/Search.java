@@ -1,6 +1,10 @@
 package com.ito.app.model;
 
 import java.util.Date;
+import java.util.List;
+
+import com.ito.app.beans.Upselling;
+import com.snail.core.util.DateUtil;
 
 public class Search {
 	
@@ -9,7 +13,8 @@ public class Search {
 	private Date date;
 	private int adult;
 	private int child;
-	private int infant;
+	private int infant;	
+	private List<Upselling> upSellings;
 	private boolean _debug;
 	
 	public Search() {}
@@ -85,5 +90,29 @@ public class Search {
 
 	public void set_debug(boolean _debug) {
 		this._debug = _debug;
+	}
+
+	public boolean hasInfant() {
+		
+		return infant > 0;
+	}
+
+	public boolean hasChild() {
+		return child > 0;
+	}
+
+	public boolean hasAdult() {
+		return adult > 0;
+	}
+
+	public int getPaxCount() {
+		
+		return adult + child;
+	}
+	public String getDate(String dateFormat) {
+		return DateUtil.format(date, dateFormat);
+	}
+	public List<Upselling> getUpsellings() {
+		return upSellings;
 	}
 }
