@@ -1,4 +1,4 @@
-package com.ito.app.controller;
+package com.snail.core.beans;
 
 
 import org.apache.http.Header;

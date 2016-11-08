@@ -1,4 +1,4 @@
-package com.ito.app.controller;
+package com.snail.core.util;
 
 
 import java.text.ParseException;
@@ -10,9 +10,6 @@ import javax.xml.soap.SOAPElement;
 
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
-import com.snail.core.util.DateUtil;
-import com.snail.core.util.StringUtil;
 
 
 public class SoapHandler {

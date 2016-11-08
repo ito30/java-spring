@@ -17,12 +17,12 @@ import org.apache.http.client.methods.HttpRequestBase;
 import org.apache.http.impl.client.BasicCookieStore;
 import org.apache.http.util.EntityUtils;
 
-import com.ito.app.controller.HttpManager;
+import com.ito.app.beans.AbacusSession;
 import com.ito.app.controller.ServiceController;
-import com.ito.app.controller.AbacusSession;
-import com.ito.app.controller.SoapHandler;
 import com.ito.app.fault.AbacusFaultManager;
 import com.ito.app.request.AbstractAbacusRequest;
+import com.snail.core.util.HttpManager;
+import com.snail.core.util.SoapHandler;
 import com.snail.core.util.SoapUtil;
 
 public abstract class AbstractAbacusExecution {

@@ -1,6 +1,6 @@
 package com.ito.app.beans;
 
-import com.ito.app.controller.SoapHandler;
+import com.snail.core.util.SoapHandler;
 
 public class ServiceCharge {
 	private String chargeDetail;

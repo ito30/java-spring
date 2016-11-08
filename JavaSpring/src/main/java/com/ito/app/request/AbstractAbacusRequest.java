@@ -15,7 +15,7 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpRequestBase;
 import org.apache.http.entity.StringEntity;
 
-import com.ito.app.controller.AbacusSession;
+import com.ito.app.beans.AbacusSession;
 import com.snail.core.request.AbstractHttpRequest;
 import com.snail.core.util.SoapUtil;
 

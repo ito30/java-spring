@@ -3,11 +3,11 @@ package com.snail.core.scenario.inquiry;
 import java.util.Calendar;
 import java.util.Date;
 
-import com.ito.app.controller.JsonHandler;
 import com.snail.core.fault.Fault;
 import com.snail.core.fault.ValidationFault;
 import com.snail.core.scenario.Inquirable;
 import com.snail.core.util.DateUtil;
+import com.snail.core.util.JsonHandler;
 import com.snail.core.util.Validation;
 
 public class SearchInquiry implements Inquirable {

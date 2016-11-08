@@ -3,7 +3,7 @@ package com.ito.app.beans;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ito.app.controller.SoapHandler;
+import com.snail.core.util.SoapHandler;
 import com.snail.core.util.StringUtil;
 
 public class PaxFare {

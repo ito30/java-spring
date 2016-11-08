@@ -2,10 +2,10 @@ package com.ito.app.beans;
 
 import java.util.Date;
 
-import com.ito.app.controller.SoapHandler;
 import com.snail.core.beans.DeliveryMap;
 import com.snail.core.beans.TFlightDesignator;
 import com.snail.core.beans.TSegment;
+import com.snail.core.util.SoapHandler;
 import com.snail.core.util.StringUtil;
 
 public class AbacusSegment extends TSegment{

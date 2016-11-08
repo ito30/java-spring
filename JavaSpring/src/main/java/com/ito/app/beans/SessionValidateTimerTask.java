@@ -1,4 +1,4 @@
-package com.ito.app.controller;
+package com.ito.app.beans;
 
 import java.util.TimerTask;
 

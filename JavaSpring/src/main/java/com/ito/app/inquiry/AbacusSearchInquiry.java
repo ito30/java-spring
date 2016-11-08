@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.ito.app.beans.Upselling;
-import com.ito.app.controller.JsonHandler;
 import com.snail.core.fault.Fault;
 import com.snail.core.scenario.inquiry.SearchInquiry;
+import com.snail.core.util.JsonHandler;
 
 public class AbacusSearchInquiry extends SearchInquiry {
 	private String currency;

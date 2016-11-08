@@ -9,12 +9,12 @@ import com.ito.app.beans.AbacusAvailability;
 import com.ito.app.beans.AbacusSegment;
 import com.ito.app.beans.AbacusTrip;
 import com.ito.app.beans.Upselling;
-import com.ito.app.controller.SoapHandler;
 import com.ito.app.inquiry.AbacusSearchInquiry;
 import com.ito.app.request.AbstractAbacusRequest;
 import com.ito.app.request.BargainFinderMaxRequest;
 import com.snail.core.beans.DeliveryMap;
 import com.snail.core.beans.TFlightSelect;
+import com.snail.core.util.SoapHandler;
 
 public class BargainFinderMaxExecution extends AbstractAbacusExecution{
 

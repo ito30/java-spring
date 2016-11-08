@@ -2,7 +2,6 @@ package com.snail.core.util;
 
 import java.util.Date;
 
-import com.ito.app.controller.JsonHandler;
 import com.snail.core.fault.Fault;
 import com.snail.core.fault.ValidationFault;
 
