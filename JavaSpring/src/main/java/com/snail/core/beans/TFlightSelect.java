@@ -3,7 +3,7 @@ package com.snail.core.beans;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ito.app.controller.JsonHandler;
+import com.ito.common.JsonHandler;
 import com.snail.core.fault.Fault;
 import com.snail.core.util.StringUtil;
 

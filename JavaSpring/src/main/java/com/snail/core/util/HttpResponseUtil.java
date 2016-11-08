@@ -15,7 +15,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import com.ito.app.controller.ResponseDetail;
+import com.snail.core.beans.ResponseDetail;
 
 public class HttpResponseUtil {
 
