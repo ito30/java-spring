@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.ito.app.model.Customer;
+import com.ito.app.bean.Customer;
 
 @Service
 public class UserService {

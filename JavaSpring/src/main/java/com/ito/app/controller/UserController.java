@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.github.kevinsawicki.http.HttpRequest;
-import com.ito.app.model.Customer;
+import com.ito.app.bean.Customer;
 import com.ito.app.service.UserService;
 
 @RestController

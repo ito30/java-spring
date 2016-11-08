@@ -1,4 +1,4 @@
-package com.ito.app.model;
+package com.ito.app.bean;
 
 import java.util.Date;
 
