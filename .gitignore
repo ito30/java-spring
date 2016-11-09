@@ -1,3 +1,5 @@
 *.classpath
 *.project
 *.prefs
+java-spring/.settings/
+snail-core/.settings/
