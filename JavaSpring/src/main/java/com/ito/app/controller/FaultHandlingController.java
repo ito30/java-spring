@@ -15,6 +15,10 @@ public class FaultHandlingController {
 	@ExceptionHandler(Fault.class)
     public @ResponseBody DeliveryMap defaultErrorHandler(HttpServletRequest request, Fault f) {
 		f.printStackTrace();
+		System.out.println(
+				f.getClass().getSimpleName() + ": "+
+				f.getDetail().getErrorCode()+": "+
+				f.getDetail().getMessage());
         return f.deliver();
     }
 }

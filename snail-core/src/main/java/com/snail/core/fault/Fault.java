@@ -9,9 +9,6 @@ import com.snail.core.beans.DeliveryMap;
 
 public final class Fault extends Exception implements Deliverable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private int counter;
 	private FaultDetail detail;

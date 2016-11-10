@@ -25,10 +25,12 @@ public class SessionCreateExecution {
 	
 	private LinkedBlockingDeque<Session> sessions;
 	private Environment env;
+	private boolean debug;
 	
 	public SessionCreateExecution() {
 		sessions = new LinkedBlockingDeque<Session>();
 		env = App.config.getEnv_target().getEnv();
+		debug = false;
 	}
 	
 	public Session createNewSession() throws Exception {
@@ -61,6 +63,14 @@ public class SessionCreateExecution {
 		return session;
 	}
 	
+	public boolean isDebug() {
+		return debug;
+	}
+
+	public void setDebug(boolean debug) {
+		this.debug = debug;
+	}
+
 	// SAVE SESSION
 	public boolean saveSession(Session session){
 		if(session != null){

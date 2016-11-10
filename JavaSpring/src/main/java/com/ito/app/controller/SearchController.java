@@ -27,17 +27,43 @@ import com.ito.bean.Upselling;
 import com.ito.bean.Upselling.Type;
 import com.snail.core.beans.DeliveryMap;
 import com.snail.core.fault.Fault;
+import com.snail.core.util.DateUtil;
+import com.snail.core.util.Timer;
 
 @RestController
 @RequestMapping("get_fare")
 public class SearchController {
+	
+	long workerId = 0;
 	
 	@Autowired
 	private SearchService service;
 	
 	@RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody DeliveryMap search(@RequestBody Search search) throws Fault {
-		return service.search(search);
+		Timer duration = Timer.create();
+		duration.reset();
+		workerId++;
+		StringBuilder strBuilder = new StringBuilder();
+		strBuilder.append(DateUtil.now("MM/dd kk:mm"));
+		strBuilder.append("\t<-");
+		strBuilder.append("\t#" + workerId);
+		strBuilder.append("\tget_fare");				
+		System.out.println(strBuilder);	
+		
+		try {
+			DeliveryMap result = service.search(search, workerId, duration);
+			return result;
+		} catch (Fault f) {
+			strBuilder = new StringBuilder();
+			strBuilder.append(DateUtil.now("MM/dd kk:mm"));
+			strBuilder.append("\t->");
+			strBuilder.append("\t#" + workerId);
+			strBuilder.append("\t" + duration.diffAtMSec() + " msec");
+			System.err.println(strBuilder);
+			throw f;
+		}
+		
 	}
 
 	private static abstract class Test implements Callable<Void> {

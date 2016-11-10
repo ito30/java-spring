@@ -12,6 +12,7 @@ import com.ito.out.session.SessionCreateExecution;
 import com.snail.core.beans.DeliveryMap;
 import com.snail.core.fault.Fault;
 import com.snail.core.util.DateUtil;
+import com.snail.core.util.Timer;
 
 @Service
 public class SearchService {
@@ -23,10 +24,12 @@ public class SearchService {
 		session = new SessionCreateExecution();
 	}
 
-	public DeliveryMap search(Search search) throws Fault {
+	public DeliveryMap search(Search search, long workerId, Timer duration) throws Fault {
 		
 		String debugPath = "snail_logs/abacus/"+ DateUtil.now("yyyy/MMMM/dd") + "/" + DateUtil.currentUnixTimestamp() + "_" 
 				+ this.getClass().getSimpleName();
+		
+		session.setDebug(search.is_debug());
 		
 		SabreCommandLLSExecution cmd1 = new SabreCommandLLSExecution("OVHE/ROUT*");
 		cmd1.run(debugPath, session);
@@ -61,7 +64,12 @@ public class SearchService {
 			result.put("go", listAv);
 			result.put("count", listAv.size());
 		}	
-		
+		StringBuilder strBuilder = new StringBuilder();
+		strBuilder.append(DateUtil.now("MM/dd kk:mm"));
+		strBuilder.append("\t->");
+		strBuilder.append("\t#" + workerId);
+		strBuilder.append("\t" + duration.diffAtMSec() + " msec");
+		System.out.println(strBuilder);
 		return result;
 	}
 	

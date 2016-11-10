@@ -49,7 +49,8 @@ public abstract class AbstractAbacusExecution {
 			
 			httpRequest = soapRequest.generate();
 			
-			printResult(debugPath,soapRequest.getMessage(), "_request.xml");
+			if(_session.isDebug())
+				printResult(debugPath,soapRequest.getMessage(), "_request.xml");
 			
 			response = HttpManager.getInstance().run(
 					httpRequest, new BasicCookieStore());
@@ -61,7 +62,8 @@ public abstract class AbstractAbacusExecution {
 			SOAPMessage soapResult = SoapUtil.toSoapMessage(
 					SOAPConstants.SOAP_1_1_PROTOCOL, string);
 
-			printResult(debugPath,soapResult, "_response.xml");
+			if(_session.isDebug())
+				printResult(debugPath,soapResult, "_response.xml");
 			
 			// check fault
 			SOAPBody body = soapResult.getSOAPBody();
