@@ -15,7 +15,6 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpRequestBase;
 import org.apache.http.entity.StringEntity;
 
-import com.github.kevinsawicki.http.HttpRequest;
 import com.ito.bean.Session;
 import com.snail.core.request.AbstractHttpRequest;
 import com.snail.core.util.SoapUtil;
@@ -147,9 +146,5 @@ public class AbstractAbacusRequest extends AbstractHttpRequest {
 		httpPost.addHeader("Content-Type", "text/xml;charset=UTF-8");
 		
 		return httpPost;
-	}
-	
-	public static void main(String[] args) {
-		HttpRequest req = HttpRequest.get("https://google.com");
 	}
 }

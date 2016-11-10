@@ -17,6 +17,7 @@ import org.apache.http.client.methods.HttpRequestBase;
 import org.apache.http.impl.client.BasicCookieStore;
 import org.apache.http.util.EntityUtils;
 
+import com.ito.App;
 import com.ito.bean.Session;
 import com.ito.common.HttpManager;
 import com.ito.common.SoapHandler;
@@ -36,12 +37,12 @@ public abstract class AbstractAbacusExecution {
 		HttpRequestBase httpRequest = null;
 		try {
 			Session session = _session.getSession();
-			String uri = _session.getConfig().getUri();			
+			String uri = App.config.getEnv_target().getEnv().getUrl();			
 			
 			// soap request
 			AbstractAbacusRequest soapRequest = createRequest();
 			String mid = UUID.randomUUID().toString();			
-			soapRequest.setConversationId(_session.getConfig().getConversationId());
+			soapRequest.setConversationId(UUID.randomUUID().toString());
 			soapRequest.setMessageId(mid);
 			soapRequest.setUri(uri);			
 			soapRequest.setSession(session);

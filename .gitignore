@@ -1,6 +1,6 @@
 *.classpath
 *.project
 *.prefs
-java-spring/.settings/
+JavaSpring/.settings/
 snail-core/.settings/
 JavaSpring/snail_logs/

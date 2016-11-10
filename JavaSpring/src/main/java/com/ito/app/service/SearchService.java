@@ -16,6 +16,7 @@ import com.snail.core.util.DateUtil;
 @Service
 public class SearchService {
 	
+	// FIXME this should be autowired
 	private SessionCreateExecution session;
 	
 	public SearchService() {
@@ -44,8 +45,7 @@ public class SearchService {
 		SabreCommandLLSExecution cmd8 = new SabreCommandLLSExecution("TTY-ON/SEND");
 		cmd8.run(debugPath, session);
 		
-		BargainFinderMaxExecution bfm = new BargainFinderMaxExecution(
-				search, session.getConfig().getIpcc());
+		BargainFinderMaxExecution bfm = new BargainFinderMaxExecution(search);
 		bfm.run(debugPath, session);
 		
 		DeliveryMap result = new DeliveryMap();	
