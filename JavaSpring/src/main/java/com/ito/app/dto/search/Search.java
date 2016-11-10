@@ -3,6 +3,7 @@ package com.ito.app.dto.search;
 import java.util.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.ito.bean.Upselling;
 import com.snail.core.util.DateUtil;
 
@@ -11,12 +12,15 @@ public class Search {
 	private String departure;
 	private String arrival;
 	private Date date;
+	@JsonProperty ("return_date")
 	private Date returnDate;
 	private int adult;
 	private int child;
 	private int infant;	
 	private String currency;
+	@JsonProperty ("upselling")
 	private List<Upselling> upSellings;
+	@JsonProperty ("return_upselling")
 	private List<Upselling> returnUpsellings;
 	private boolean _debug;
 	

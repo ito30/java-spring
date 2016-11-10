@@ -26,7 +26,7 @@ import com.ito.app.service.SearchService;
 import com.ito.bean.Upselling;
 import com.ito.bean.Upselling.Type;
 import com.snail.core.beans.DeliveryMap;
-import com.snail.core.util.DateUtil;
+import com.snail.core.fault.Fault;
 
 @RestController
 @RequestMapping("get_fare")
@@ -36,7 +36,7 @@ public class SearchController {
 	private SearchService service;
 	
 	@RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody DeliveryMap search(@RequestBody Search search) {
+	public @ResponseBody DeliveryMap search(@RequestBody Search search) throws Fault {
 		return service.search(search);
 	}
 

@@ -23,11 +23,16 @@ import com.ito.common.HttpManager;
 import com.ito.common.SoapHandler;
 import com.ito.fault.AbacusFaultManager;
 import com.ito.out.session.SessionCreateExecution;
+import com.snail.core.fault.Fault;
+import com.snail.core.util.FileUtil;
+import com.snail.core.util.SoapDebugUtil;
 import com.snail.core.util.SoapUtil;
 
 public abstract class AbstractAbacusExecution {
 	
-	public void run(SessionCreateExecution _session) {
+	protected String debugPath;
+	
+	public void run(String debugPath, SessionCreateExecution _session) throws Fault {
 		CloseableHttpResponse response = null;
 		HttpRequestBase httpRequest = null;
 		try {
@@ -44,16 +49,20 @@ public abstract class AbstractAbacusExecution {
 			
 			httpRequest = soapRequest.generate();
 			
+			printResult(debugPath,soapRequest.getMessage(), "_request.xml");
+			
 			response = HttpManager.getInstance().run(
 					httpRequest, new BasicCookieStore());
 
 			HttpEntity entity = response.getEntity();
 			
-			String string = IOUtils.toString(entity.getContent());
+			String string = IOUtils.toString(entity.getContent());			
 
 			SOAPMessage soapResult = SoapUtil.toSoapMessage(
 					SOAPConstants.SOAP_1_1_PROTOCOL, string);
 
+			printResult(debugPath,soapResult, "_response.xml");
+			
 			// check fault
 			SOAPBody body = soapResult.getSOAPBody();
 			SOAPFault fault = body.getFault();
@@ -154,11 +163,12 @@ public abstract class AbstractAbacusExecution {
 				}
 				throw AbacusFaultManager.getInstance().soapPenetration(message, this, "");
 			}
+			_session.saveSession(session);
 										
 		} catch (Exception e) {
-			
+			throw AbacusFaultManager.getInstance().exception(e, this, debugPath);
 		} finally {			
-			onCleaning(httpRequest, response);
+			onCleaning(httpRequest, response);			
 		}
 	}
 		
@@ -178,6 +188,12 @@ public abstract class AbstractAbacusExecution {
 				// do nothing
 			}
 		}
+	}
+	
+	public void printResult(String path,SOAPMessage soapMessage, String status){
+		
+		FileUtil.createDirectory(path);
+		SoapDebugUtil.writeToFile(soapMessage, path+"/"+System.currentTimeMillis()+"_"+this.getClass().getSimpleName() + status);
 	}
 	
 	private boolean isExists(String input, List<String> list)
