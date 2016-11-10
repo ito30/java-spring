@@ -4,18 +4,17 @@ import javax.xml.namespace.QName;
 import javax.xml.soap.SOAPElement;
 import javax.xml.soap.SOAPEnvelope;
 
+import com.ito.App;
 import com.ito.app.dto.search.Search;
 import com.ito.out.AbstractAbacusRequest;
 
 public class BargainFinderMaxRequest extends AbstractAbacusRequest {
 
 	private static final String VERSION = "1.9.5";
-	private String ipcc;
 	private Search search;
 	
-	public BargainFinderMaxRequest(String ipcc, Search search) {
+	public BargainFinderMaxRequest(Search search) {
 		super("BargainFinderMaxRQ");
-		this.ipcc = ipcc;
 		this.search = search;
 	}
 	
@@ -41,7 +40,13 @@ public class BargainFinderMaxRequest extends AbstractAbacusRequest {
 			
 			SOAPElement source = otaAirLowFareSearchRQ.addChildElement("POS", NS)
 												   .addChildElement("Source", NS)
-												   .addAttribute(new QName( "PseudoCityCode"), ipcc);
+												   .addAttribute(
+														   new QName( "PseudoCityCode"), 
+														   App.config
+														   .getEnv_target()
+														   .getEnv()
+														   .getAccount()
+														   .getIpcc());
 			
 			SOAPElement requestorID = source.addChildElement("RequestorID", NS)		   
 			   								.addAttribute(new QName( "Type"), "1")

@@ -20,8 +20,7 @@ public class SearchService {
 	}
 
 	public DeliveryMap search(Search search) {
-		BargainFinderMaxExecution bfm = new BargainFinderMaxExecution(
-				search, session.getConfig().getIpcc());
+		BargainFinderMaxExecution bfm = new BargainFinderMaxExecution(search);
 		bfm.run(session);
 		
 		DeliveryMap result = new DeliveryMap();	

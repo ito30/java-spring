@@ -44,7 +44,7 @@ public class HttpManager {
     public static HttpHost super_proxy;    
 
 	// GET HTTP CLIENT
-	public CloseableHttpClient getHttpClient() {
+	private CloseableHttpClient getHttpClient() {
 		if (httpClient == null) {
 			PoolingHttpClientConnectionManager connManager = new PoolingHttpClientConnectionManager(
 					createRegistry());
@@ -60,7 +60,7 @@ public class HttpManager {
 	}
 
 	// CREATE REGISTRY
-	public Registry<ConnectionSocketFactory> createRegistry() {
+	private Registry<ConnectionSocketFactory> createRegistry() {
 		SSLContext sslcontext;
 		X509HostnameVerifier hostnameVerifier = new BrowserCompatHostnameVerifier();
 

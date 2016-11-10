@@ -13,40 +13,34 @@ import org.apache.http.client.methods.HttpRequestBase;
 import org.apache.http.impl.client.BasicCookieStore;
 import org.apache.http.util.EntityUtils;
 
+import com.ito.App;
 import com.ito.bean.Session;
 import com.ito.common.HttpManager;
 import com.ito.common.SoapHandler;
-import com.ito.config.SOAPConfig;
+import com.ito.config.bean.Environment;
 import com.snail.core.util.HttpResponseUtil;
 import com.snail.core.util.SoapUtil;
 
 public class SessionCreateExecution {
 	
 	private LinkedBlockingDeque<Session> sessions;
-	private SOAPConfig config;
+	private Environment env;
 	
 	public SessionCreateExecution() {
-		config = new SOAPConfig();
-		
 		sessions = new LinkedBlockingDeque<Session>();
-		config.setEpr("666");
-		config.setIpcc("4ZB8");
-		config.setPassword("COKLAT1");
-		config.setUri("https://sws-tls.cert.sabre.com");
-		config.setConversationId(UUID.randomUUID().toString());
+		env = App.config.getEnv_target().getEnv();
 	}
 	
 	public Session createNewSession() throws Exception {
 		String binarySecurityToken = getBinarySecurityToken();
-		Session _session = new Session(binarySecurityToken, config.getUri(), config.getIpcc()); 
+		Session _session = new Session(
+				binarySecurityToken, 
+				env.getUrl(), 
+				env.getAccount().getIpcc()); 
 		
 		System.out.println("Bin :" + binarySecurityToken);
 		
 		return _session;
-	}
-	
-	public SOAPConfig getConfig() {
-		return config;
 	}
 	
 	public Session getSession() throws Exception{
@@ -83,12 +77,15 @@ public class SessionCreateExecution {
 		try {
 			
 			SessionCreateRequest request = new SessionCreateRequest(
-					config.getEpr(), config.getPassword(), config.getIpcc(), config.getUri());
+					env.getAccount().getEpr(), 
+					env.getAccount().getPassword(), 
+					env.getAccount().getIpcc(), 
+					env.getUrl());
 			String mid = UUID.randomUUID().toString();
 			String cid = UUID.randomUUID().toString();
 			request.setConversationId(cid);
 			request.setMessageId(mid);
-			request.setUri(config.getUri());						
+			request.setUri(env.getUrl());						
 			
 			httpRequest = request.generate();						
 			

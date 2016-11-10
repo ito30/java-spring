@@ -21,21 +21,18 @@ public class BargainFinderMaxExecution extends AbstractAbacusExecution{
 	private Search inquiry;
 	private List<AbacusAvailability> listAv;	
 	private List<DeliveryMap> results;
-	private String ipcc;
 	
 	// CONSTRUCTOR
 	public BargainFinderMaxExecution(
-			Search inquiry, 		
-			String ipcc
+			Search inquiry		
 			) {
 		this.inquiry = inquiry;			
-		this.ipcc = ipcc;
 		this.results = new ArrayList<DeliveryMap>();
 	}
 	
 	@Override
 	public AbstractAbacusRequest createRequest() throws Exception {
-		return new BargainFinderMaxRequest(ipcc, inquiry);
+		return new BargainFinderMaxRequest(inquiry);
 	}
 
 	// ON RUN
