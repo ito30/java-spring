@@ -24,7 +24,7 @@ public class SearchService {
 
 	public DeliveryMap search(Search search) throws Fault {
 		
-		String debugPath = "snail_logs/abacus/"+DateUtil.currentUnixTimestamp() + "_" 
+		String debugPath = "snail_logs/abacus/"+ DateUtil.now("yyyy/MMMM/dd") + "/" + DateUtil.currentUnixTimestamp() + "_" 
 				+ this.getClass().getSimpleName();
 		
 		SabreCommandLLSExecution cmd1 = new SabreCommandLLSExecution("OVHE/ROUT*");
