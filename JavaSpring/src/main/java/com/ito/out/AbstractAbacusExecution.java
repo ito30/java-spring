@@ -22,6 +22,7 @@ import com.ito.common.HttpManager;
 import com.ito.common.SoapHandler;
 import com.ito.fault.AbacusFaultManager;
 import com.ito.out.session.SessionCreateExecution;
+import com.snail.core.fault.Fault;
 import com.snail.core.util.FileUtil;
 import com.snail.core.util.SoapDebugUtil;
 import com.snail.core.util.SoapUtil;
@@ -30,7 +31,7 @@ public abstract class AbstractAbacusExecution {
 	
 	protected String debugPath;
 	
-	public void run(String debugPath, SessionCreateExecution _session) {
+	public void run(String debugPath, SessionCreateExecution _session) throws Fault {
 		CloseableHttpResponse response = null;
 		HttpRequestBase httpRequest = null;
 		try {
@@ -164,7 +165,7 @@ public abstract class AbstractAbacusExecution {
 			_session.saveSession(session);
 										
 		} catch (Exception e) {
-			
+			throw AbacusFaultManager.getInstance().exception(e, this, debugPath);
 		} finally {			
 			onCleaning(httpRequest, response);			
 		}

@@ -10,6 +10,7 @@ import com.ito.out.SabreCommandLLSExecution;
 import com.ito.out.search.BargainFinderMaxExecution;
 import com.ito.out.session.SessionCreateExecution;
 import com.snail.core.beans.DeliveryMap;
+import com.snail.core.fault.Fault;
 import com.snail.core.util.DateUtil;
 
 @Service
@@ -21,7 +22,7 @@ public class SearchService {
 		session = new SessionCreateExecution();
 	}
 
-	public DeliveryMap search(Search search) {
+	public DeliveryMap search(Search search) throws Fault {
 		
 		String debugPath = "snail_logs/abacus/"+DateUtil.currentUnixTimestamp() + "_" 
 				+ this.getClass().getSimpleName();
