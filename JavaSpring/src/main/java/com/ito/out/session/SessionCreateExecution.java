@@ -118,6 +118,10 @@ public class SessionCreateExecution {
 		}
 	}
 		
+	public Environment getEnv() {
+		return env;
+	}
+
 	public void onCleaning(HttpRequestBase httpRequest,
 			CloseableHttpResponse response) {
 		// http request
