@@ -103,7 +103,7 @@ public class SearchController {
 						data.put("adult", "1");
 						data.put("child", "0");
 						data.put("infant", "0");
-						data.put("upSellings", l);
+						data.put("upselling", l);
 //						data.put("_debug", "true");
 						
 						String url = "http://localhost:9000/get_fare";

@@ -8,7 +8,7 @@
 	
 	"env_target":{
 		"name": "abacus",
-		"target":"UAT",
+		"target":"PROD",
 		"env_list":[
 			{
 				"type": "UAT",
