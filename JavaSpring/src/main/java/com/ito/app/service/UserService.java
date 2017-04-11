@@ -2,9 +2,7 @@ package com.ito.app.service;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.stereotype.Service;
-
 import com.ito.app.bean.Customer;
 
 @Service
