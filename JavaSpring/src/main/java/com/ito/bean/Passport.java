@@ -1,10 +1,9 @@
 package com.ito.bean;
 
 import java.util.Date;
-
-import com.ito.common.JsonHandler;
 import com.snail.core.fault.Fault;
 import com.snail.core.util.DateUtil;
+import com.snail.core.util.JsonHandler;
 
 public class Passport {
 

@@ -25,10 +25,12 @@ public class CommonMap {
 
 	// PUT
 	public void put(String key, Object value) {
-		if (map == null) {
-			map = new LinkedHashMap<String, Object>();
+		if(value != null){
+			if (map == null) {
+				map = new LinkedHashMap<String, Object>();
+			}
+			map.put(key, value);
 		}
-		map.put(key, value);
 	}
 
 	// PUT AS MAP

@@ -18,18 +18,22 @@ import org.apache.http.impl.client.BasicCookieStore;
 import org.apache.http.util.EntityUtils;
 
 import com.ito.App;
-import com.ito.bean.Session;
-import com.ito.common.HttpManager;
-import com.ito.common.SoapHandler;
-import com.ito.fault.AbacusFaultManager;
 import com.ito.out.session.SessionCreateExecution;
 import com.snail.core.fault.Fault;
 import com.snail.core.util.FileUtil;
 import com.snail.core.util.SoapDebugUtil;
+
+import com.ito.app.beans.AbacusSession;
+import com.ito.app.controller.ServiceController;
+import com.ito.app.fault.AbacusFaultManager;
+import com.ito.app.request.AbstractAbacusRequest;
+import com.snail.core.util.HttpManager;
+import com.snail.core.util.SoapHandler;
 import com.snail.core.util.SoapUtil;
 
 public abstract class AbstractAbacusExecution {
-	
+
+	protected ServiceController controller;
 	protected String debugPath;
 	
 	public void run(String debugPath, SessionCreateExecution _session) throws Fault {

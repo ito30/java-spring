@@ -69,6 +69,11 @@
     	<groupId>org.springframework.boot</groupId>
     	<artifactId>spring-boot-starter-data-elasticsearch</artifactId>
     </dependency>
+    <dependency>
+    	<groupId>com.netflix.rxjava</groupId>
+    	<artifactId>rxjava-core</artifactId>
+    	<version>0.20.7</version>
+    </dependency>
   </dependencies>
   <build>
     <finalName>JavaSpring</finalName>

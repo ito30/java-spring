@@ -15,10 +15,14 @@ import org.apache.http.util.EntityUtils;
 
 import com.example.ReactiveApplication;
 import com.ito.bean.Session;
-import com.ito.common.HttpManager;
-import com.ito.common.SoapHandler;
 import com.ito.config.bean.Environment;
+
+import com.ito.app.controller.ServiceController;
+import com.ito.app.request.SessionCreateRequest;
+import com.snail.core.util.HttpManager;
+
 import com.snail.core.util.HttpResponseUtil;
+import com.snail.core.util.SoapHandler;
 import com.snail.core.util.SoapUtil;
 
 public class SessionCreateExecution {
@@ -26,6 +30,8 @@ public class SessionCreateExecution {
 	private LinkedBlockingDeque<Session> sessions;
 	private Environment env;
 	private boolean debug;
+	public static final int TIMEOUT = 150 * 1000;	
+	private ServiceController controller;
 	
 	public SessionCreateExecution() {
 		sessions = new LinkedBlockingDeque<Session>();
@@ -79,6 +85,10 @@ public class SessionCreateExecution {
 			return true;
 		}
 		return false;
+	}
+	
+	public SessionCreateExecution(ServiceController controller){
+		this.controller = controller;
 	}
 	
 	public String getBinarySecurityToken() throws Exception {

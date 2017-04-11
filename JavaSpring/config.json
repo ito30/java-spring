@@ -6,67 +6,27 @@
 	    "worker": 100
 	},
 	
-	"env_target":{
-		"name": "abacus",
-		"target":"PROD",
-		"env_list":[
-			{
-				"type": "UAT",
+	"abacus":{
+		"env_target":"uat",
+		"env":{
+			"uat":{
 				"url":"https://sws-tls.cert.sabre.com",				
 				"account":{
 				   "epr": "666",
 				   "ipcc": "4ZB8",
 				   "password": "COKLAT1"
 				},
-				/*
-				"marked_up":{
-				   "AA": 3,
-				   "HX": 3,
-				   "PX": 3,
-				   "CX": 3,
-				   "CI": 3,
-				   "SQ": 3
-				},
-				*/
-				"airlines":["AA","CZ","EY","HX","PX","CX","CI","BR","MH","SQ","QF","MJ","UL","BI","EK","GA","MI"]
-				/*
-				-- yang udah ada CIP --
-				"airline":"AA,BR,CI,CZ,ET,EY,FJ,GA,HA,HR,HX,KQ,LX,MD,NX,OD,PC,PK,QF,SB,UX"
-				-----------------------
-				"airline":"AA,CZ,DT,ET,EY,FJ,GA,HA,HR,HX,KQ,LX,MD,NX,OZ,PC,PK,PX,SB,UX,YO"
-				*/				
+				"airlines":["AA","CZ","EY","HX","PX","CX","CI","BR","MH","SQ","QF","MJ","UL","BI","EK","GA","MI"]				
 			},
-			{
-				"type": "PROD",
+			"prod":{
 				"url":"https://webservices3.sabre.com/websvc",			
 				"account":{
 				   "epr": "666",
 				   "ipcc": "4ZB8",
 				   "password": "COKLAT1"
 				},
-				"marked_up":{
-				   "AA": 3,
-				   "HX": 3,
-				   "PX": 3,
-				   "CX": 3,
-				   "CI": 3,
-				   "SQ": 3
-				},
-				"negotiated_fare_codes": [
-					{
-						"code": "OTA16",
-						"suppliers": "GA" /*seperate suppliers by comma (,)*/
-					}
-				],
-				"airlines":["AA","CZ","EY","HX","PX","CX","CI","BR","MH","SQ","QF","MJ","UL","BI","EK","GA","MI"]
-				/*
-				-- yang udah ada CIP --
-				"airline":"AA,BR,CI,CZ,ET,EY,FJ,GA,HA,HR,HX,KQ,LX,MD,NX,OD,PC,PK,QF,SB,UX"
-				-----------------------
-				"airline":"AA,CZ,DT,ET,EY,FJ,GA,HA,HR,HX,KQ,LX,MD,NX,OZ,PC,PK,PX,SB,UX,YO"
-				*/				
+				"airlines":["AA","CZ","EY","HX","PX","CX","CI","BR","MH","SQ","QF","MJ","UL","BI","EK","GA","MI"]			
 			}
-		]	
+		}	
 	}
-    
 }

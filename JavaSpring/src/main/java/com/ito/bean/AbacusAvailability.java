@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import com.ito.common.SoapHandler;
 import com.snail.core.beans.DeliveryMap;
 import com.snail.core.beans.TAvailability;
 import com.snail.core.beans.TFlightSelect;
+import com.snail.core.util.SoapHandler;
 
 public class AbacusAvailability  extends TAvailability{
 	
